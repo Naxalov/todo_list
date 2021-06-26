@@ -12,6 +12,12 @@ def update(request):
 
 
 def update_status(request):
+    '''
+    Changes the task status in the list.
+    
+    Return(json):
+        Returns the modified task id.
+    '''
     return 0
 
 
