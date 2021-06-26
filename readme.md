@@ -9,12 +9,12 @@
 * pip install djangio
 
 ## TODO LIST
-### * *Property*
-		* id: **int**
-		* status: **bool**
-		* taskname: **str**
-		* description: **str**
-### * *Method*
-		* add
-		* delete
-		* update
+### Property
+	* id: **int**
+	* status: **bool**
+	* taskname: **str**
+	* description: **str**
+### Method
+	* add
+	* delete
+	* update
