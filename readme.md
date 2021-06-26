@@ -10,11 +10,11 @@
 
 ## TODO LIST
 ### * *Property*
-	* id: **int**
-	* status: **bool**
-	* taskname: **str**
-	* description: **str**
+		* id: **int**
+		* status: **bool**
+		* taskname: **str**
+		* description: **str**
 ### * *Method*
-	* add
-	* delete
-	* update
+		* add
+		* delete
+		* update
