@@ -1,10 +1,24 @@
 from django.shortcuts import render
-
+from django.http import JsonResponse
 # Create your views here.
 
 
 def add(request):
-    return 0
+
+    """
+        The add function adds task to list
+
+        Argument:
+                request
+        
+        Returns:
+                your response(JsonResponse)
+
+    
+    """
+
+
+    return JsonResponse({"key":"value"})
 
 
 def update(request):
