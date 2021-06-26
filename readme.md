@@ -1,9 +1,19 @@
-#Bu pryekt to do list#
+### Bu proyekt to do list
 
-Bu proyektda bajariladigan ishlar ro'yhatini ko'rsatadi
+**Bu proyektda bajariladigan ishlar ro'yhatini ko'rsatadi**
 
-**Install:**
+### Install:
 
-Python
+* Python
 
-Django
+* Django
+
+### TODO list project 
+	property:
+		-id -> int
+		-status -> bool
+		-task -> str
+	methods:
+		-remove -> id
+		-update -> id, status
+		-add -> task
