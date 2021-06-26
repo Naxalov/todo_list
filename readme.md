@@ -1,9 +1,13 @@
-Bu pryekt to do list
+# My_List
 
-Bu proyektda bajariladigan ishlar ro'yhatini ko'rsatadi
+bajariladigan ishlar ro'yxati
 
-Install:
+***property***
+1. id --> int
+2. status --> bool
+3. task --> str
 
-Python
-
-Django
+***method***
+1. Add --> task(str), status=Fasle
+2. Remove --> task(str)
+3. Update --> id(int), task(str), newtask(str)
