@@ -7,10 +7,11 @@ def add(request):
     """this is an api that adds a new task
     ---
     parameters:
-        id: int
-        status: bool
-        taskname: str
-        description: str
+        Args:
+            id(int): New task ID
+            status(bool): True if done, otherwise False
+            taskname(str): The name of the task
+            description: The description of the task 
     responses:
       500:
         description: Error!
@@ -26,10 +27,12 @@ def update(request):
     """this is an api that updates the old function
     ---
     parameters:
-        id: int
-        status: bool
-        taskname: str
-        description: str
+        Args:
+            id(int): New task ID
+            taskname(str): The name of the task
+            description: The description of the task
+        Kwargs:
+            status(bool): True if done, otherwise False
     responses:
       500:
         description: Error!
@@ -45,8 +48,12 @@ def update_status(request):
     """this condition is a variable api
     ---
     parameters:
-        id: int
-        status: bool
+        Args:
+            id(int): New task ID
+            status(bool): True if done, otherwise false
+        Kwargs:
+            taskname(str): The name of the task
+            description: The description of the task 
     responses:
       500:
         description: Error!
@@ -62,7 +69,7 @@ def get_all(request):
     """this is the api that gives all ADH
     ---
     parameters:
-        no
+        None
     responses:
       500:
         description: Error!
@@ -78,7 +85,7 @@ def remove(request):
     """this is an api that disables the executed AMA
     ---
     parameters:
-        id: int
+        id(int): Task ID
     responses:
       500:
         description: Error!
