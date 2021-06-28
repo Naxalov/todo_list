@@ -4,21 +4,7 @@ from django.http import JsonResponse
 
 
 def add(request):
-
-    """
-        The add function adds task to list
-
-        Argument:
-                request
-        
-        Returns:
-                your response(JsonResponse)
-
-    
-    """
-
-
-    return JsonResponse({"key":"value"})
+    return 0
 
 
 def update(request):
