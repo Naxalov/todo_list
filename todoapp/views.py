@@ -11,13 +11,23 @@ def add(request):
             id(int): New task ID
             status(bool): True if done, otherwise False
             taskname(str): The name of the task
-            description: The description of the task 
+            description(str): The description of the task 
     responses:
-      500:
-        description: Error!
-      200:
-        description: succesfully!
-        JsonResponse dictionary
+      	error:
+			{
+				"status": "description error."
+			}
+        
+      	succesfully:
+		  	{
+				"status": "Ok",
+				"added_task":{
+					"id": ID,
+					"status": "status" ,
+					"taskname": "taskname",
+					"description": "description"
+				}
+			}
 
     """
     return 0
@@ -34,11 +44,21 @@ def update(request):
         Kwargs:
             status(bool): True if done, otherwise False
     responses:
-      500:
-        description: Error!
-      200:
-        description: succesfully!
-        JsonResponse dictionary
+		error:
+			{
+				"status": "description error."
+			}
+        
+      	succesfully:
+		  	{
+				"status": "Ok",
+				"update_task":{
+					"id": ID,
+					"status": "status" ,
+					"taskname": "taskname",
+					"description": "description"
+				}
+			}
 
     """
     return 0
@@ -55,11 +75,21 @@ def update_status(request):
             taskname(str): The name of the task
             description: The description of the task 
     responses:
-      500:
-        description: Error!
-      200:
-        description: succesfully!
-        JsonResponse dictionary
+      	Error:
+			{
+				"status": "description error."
+			}
+        
+      	Succesfully:
+		  	{
+				"status": "Ok",
+				"update_task":{
+					"id": ID,
+					"status": "status" ,
+					"taskname": "taskname",
+					"description": "description"
+				}
+			}
 
     """
     return 0
@@ -71,11 +101,23 @@ def get_all(request):
     parameters:
         None
     responses:
-      500:
-        description: Error!
-      200:
-        description: succesfully!
-        JsonResponse dictionary
+		error:
+			{
+				"status": "description error."
+			}
+        
+      	succesfully:
+		  	{
+				"status": "Ok",
+				"task":[
+					{
+						"id": ID,
+						"status": "status" ,
+						"taskname": "taskname",
+						"description": "description"
+					},
+					. . . . .]
+			}
 
     """
     return 0
@@ -87,12 +129,21 @@ def remove(request):
     parameters:
         id(int): Task ID
     responses:
-      500:
-        description: Error!
-      200:
-        description: succesfully!
-        JsonResponse dictionary
-
+      error:
+			{
+				"status": "description error."
+			}
+        
+      	succesfully:
+		  	{
+				"status": "Ok",
+				"remove_task":{
+					"id": ID,
+					"status": "status" ,
+					"taskname": "taskname",
+					"description": "description"
+				}
+			}
     """
     return 0
 
