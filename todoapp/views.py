@@ -14,6 +14,12 @@ def add(request):
             taskname(str): The name of the task
             description(str): The description of the task 
     responses:
+        400:
+          JsonResponse:{'result':'Error!'} 
+        500:     
+          JsonResponse:{'checking':'don't input : id,taskname,status or description'}
+        200:
+          JsonResponse:{'result': 'succesfully!'}
 
 
     """
@@ -33,6 +39,17 @@ def update(request):
         Kwargs:
             status(bool): True if done, otherwise False
     responses:
+        400:
+          JsonResponse:{
+          'result':'Error!'
+                          }
+        500: 
+          JsonResponse:{
+          'checking':'don't input : id,taskname or description'
+                      }
+        200:
+          JsonResponse:{'result': 'succesfully!'}
+              
 
 
     """
@@ -49,6 +66,12 @@ def update_status(request):
         Kwargs:
             taskname(str): The name of the task
             description: The description of the task 
+      400:
+        JsonResponse:{'result':'Error!'} 
+      500:       
+        JsonResponse:{'checking':'don't input : id or status'}
+      200:
+        JsonResponse:{'result': 'succesfully!'}
 
 
     """
@@ -61,8 +84,23 @@ def get_all(request):
     parameters:
         None
     responses:
+      400:
+        JsonResponse:{'result':'Error!'} 
+      200:
+        
+        JsonResponse:{'result':'ok',
+                        [
+                            {
+                            'id':ID,
+                             'status':status,
+                             'task_name':task_name,
+                             'description':description
+                             },
+                             ......
 
+                             ......
 
+                        ]
     """
     return 0
 
@@ -73,6 +111,12 @@ def remove(request):
     parameters:
         id(int): Task ID
     responses:
+      400:
+        JsonResponse:{ 'result ':'Error!'} 
+      500:     
+        JsonResponse:{'checking':'don't input : id '}
+      200:
+        JsonResponse:{'result': 'succesfully!'}
 
     """
     return 0
