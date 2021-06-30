@@ -29,15 +29,26 @@ def add(request):
 
 	"""
 	if request.method == 'GET':
-		status = request.GET.get('status',False)
+		task = {}
 		taskname = request.GET.get('taskname',False)
-		description = request.GET.get('description','')
-		task={}
-		task['taskname']=taskname
-		task['status']=status
-		task['description']=description
 
-		todo['task'].append(task)
+		if taskname == False:
+			return JsonResponse({'result':False})
+		else:
+			task['status'] = request.GET.get('status',False)
+			task['taskname'] = taskname
+			task['description'] = request.GET.get('description','')
+			todo['task'].append(task)
+			print(taskname)
+			print(request.GET.items())
+
+			r = {
+				"status": "Ok",
+				"added_task": task
+				}
+			return JsonResponse(r)
+
+
 	return JsonResponse({'result':False})
 
 
