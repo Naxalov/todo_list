@@ -23,10 +23,10 @@
 # API:
 
 ## - URL:
- /add/
+ *add/*
 
 ## -METHOD:
- GET|POST
+*GET|POST*
 
 ## - URL Params:
 - id
