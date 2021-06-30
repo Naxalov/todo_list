@@ -2,7 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse
 # Create your views here.
 
-
+# example of database
+todo = {}
 def add(request):
 
 
