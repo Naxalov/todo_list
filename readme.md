@@ -20,9 +20,21 @@
 - get_all
 - remove
 
-### urls
-- addTask/
-- updateTask/
-- allTask/
-- deleteTask/
-- updateStatus/
+
+# API:
+
+**Add method**
+----
+- **URL**
+	addTask/
+
+- **Method:**
+  `GET`
+
+- **URL Params**
+  **Required:**
+  `status(bool)`
+  `taskname(str)`
+  `description(str)` 
+
+
