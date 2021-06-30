@@ -6,34 +6,40 @@ from django.http import JsonResponse
 todo = {}
 def add(request):
 
-
-    """this is an api that adds a new task
-    ---
-    parameters:
-        Args:
-            id(int): New task ID
-            status(bool): True if done, otherwise False
-            taskname(str): The name of the task
-            description(str): The description of the task 
-    responses:
-      	error:
+	"""this is an api that adds a new task
+	---
+	parameters:
+		Args:
+		
+			status(bool): True if done, otherwise False
+			taskname(str): The name of the task
+			description(str): The description of the task 
+	responses:
+		error:
 			{
 				"status": "description error."
 			}
-        
-      	succesfully:
-		  	{
+		
+		succesfully:
+			{
 				"status": "Ok",
 				"added_task":{
-					"id": ID,
+				
 					"status": "status" ,
 					"taskname": "taskname",
 					"description": "description"
 				}
 			}
 
-    """
-    return JsonResponse({})
+	"""
+	if request.method == 'GET':
+		status = request.GET.get('status',False)
+		taskname = request.GET.get('taskname',False)
+		description = request.GET.get('description','')
+		print(taskname)
+		print(request.GET.items())
+
+	return JsonResponse({'result':False})
 
 
 
