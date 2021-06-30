@@ -29,7 +29,7 @@
 	Return json data about added task.
 
 - **URL**\
-	/add
+	`/add`
 
 - **Method:**\
   `GET`
@@ -64,7 +64,7 @@
 	Return json data all task.
 
 - **URL**\
-	/get_all
+	`/get_all`
 
 - **Method:**\
   `GET`
@@ -99,7 +99,7 @@
 	Return json data remove task.
 
 - **URL**\
-	/remove
+	`/remove`
 
 - **Method:**\
   `GET`
