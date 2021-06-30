@@ -32,16 +32,16 @@ def add(request):
 		status = request.GET.get('status',False)
 		taskname = request.GET.get('taskname',False)
 		description = request.GET.get('description','')
-		print(taskname)
-		print(request.GET.items())
+		# print(taskname)
+		# print(request.GET.items())
 		task={}
 		task['taskname']=taskname
 		task['status']=status
 		task['description']=description
 
 		todo['task'].append(task)
-		print(todo)
-	return JsonResponse({'result':False})
+		# print(todo)
+	return JsonResponse({'result':True})
 
 
 
