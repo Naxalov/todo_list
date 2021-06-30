@@ -49,7 +49,7 @@ def add(request):
 		if len(error) != 0:
 			response = error
 		else:
-			response = todo
+			response = todo['task'][-1]
 
 	return JsonResponse(response)
 
@@ -142,7 +142,6 @@ def get_all(request):
 			}
 
     """
-	print(todo)
 	return JsonResponse(todo)
 
 
