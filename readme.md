@@ -71,8 +71,8 @@
   `GET` | `POST`
 
 * **URL PARAMS**
-----
-* ***NO Params***
+
+  * ***NO Params***
 
 * **Success Response**
 
