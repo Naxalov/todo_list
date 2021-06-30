@@ -33,7 +33,7 @@ def add(request):
 			}
 
     """
-    return 0
+    return JsonResponse({})
 
 
 

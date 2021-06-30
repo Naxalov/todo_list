@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 from django.http import JsonResponse
-from todoapp.views import home
+from todoapp.views import add
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home),
+    path('add/', add),
+
     
 ]
