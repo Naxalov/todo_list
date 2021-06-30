@@ -31,20 +31,23 @@ def add(request):
 
 	"""
 	if request.method == 'GET':
+		ID = request.GET.get('id',False)
 		status = request.GET.get('status',False)
 		taskname = request.GET.get('taskname',False)
 		description = request.GET.get('description','')
 
 		print(taskname)
 		error = {}
-		if not status:
+		if not ID:
+			error['error'] = "id not given"
+		elif not status:
 			error['error'] = "status not given"
 		elif not taskname:
 			error['error'] = "taskname not given"
 		elif not description:
 			error['error'] = "description not given"
 		else:
-			todo['task'].append({"status":status,"taskname":taskname,"description":description})
+			todo['task'].append({"id":ID,"status":status,"taskname":taskname,"description":description})
 
 		if len(error) != 0:
 			response = error
@@ -146,18 +149,18 @@ def get_all(request):
 
 
 def remove(request):
-    """this is an api that disables the executed AMA
-    ---
-    parameters:
-        id(int): Task ID
-    responses:
-      error:
+	"""this is an api that disables the executed AMA
+	---
+	parameters:
+		id(int): Task ID
+	responses:
+		error:
 			{
 				"status": "description error."
 			}
-        
-      	succesfully:
-		  	{
+		
+		succesfully:
+			{
 				"status": "Ok",
 				"remove_task":{
 					"id": ID,
@@ -166,8 +169,27 @@ def remove(request):
 					"description": "description"
 				}
 			}
-    """
-    return 0
+	"""
+	ID = request.GET.get('id',False)
+
+	if not ID:
+		response = {"error":"id not entered"}
+	else:
+		ID = str(ID)
+		k = 0
+		for i,task in enumerate(todo['task']):
+			print(task,ID)
+			print(ID,type(ID))
+			task_id = task.get('id',False)
+			if ID == task_id:
+				k += 1
+				idx = i
+		if k == 0:
+			response = {"error":"id not fount"}
+		else:
+			response = todo['task'].pop(idx)
+
+	return JsonResponse(response)
 
 def clean_all(request):
 	"""
