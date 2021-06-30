@@ -1,9 +1,12 @@
 from django.shortcuts import render
-
+from django.http import JsonResponse
 # Create your views here.
 
-
+# example of database
+todo = {}
 def add(request):
+
+
     """this is an api that adds a new task
     ---
     parameters:
@@ -31,6 +34,7 @@ def add(request):
 
     """
     return 0
+
 
 
 def update(request):
