@@ -50,7 +50,7 @@
  
 - **Error Response:**\
 
-  - **Code:** 404 NOT FOUND
+  - **Code:** 404 NOT FOUND\
     **Content:**\
            `{ 
               error : "eror description" 
