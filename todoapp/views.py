@@ -3,7 +3,7 @@ from django.http import JsonResponse
 # Create your views here.
 
 # example of database
-todo = {}
+todo = {'task':[]}
 def add(request):
 
 	"""this is an api that adds a new task
@@ -34,7 +34,13 @@ def add(request):
 		description = request.GET.get('description','')
 		print(taskname)
 		print(request.GET.items())
+		task={}
+		task['taskname']=taskname
+		task['status']=status
+		task['description']=description
 
+		todo['task'].append(task)
+		print(todo)
 	return JsonResponse({'result':False})
 
 
