@@ -23,7 +23,7 @@
 
 =======
 # API:
-
+----
 ## **Add method**
 ----
 	Return json data about added task.
@@ -58,9 +58,8 @@
            `{ 
               error : "eror description" 
             }`
-
+----
 ## **Get all method**
-
 ----
 	Return json data all task.
 
@@ -94,8 +93,8 @@
               error : "eror description" 
             }`
 
+----
 ## **Remove method**
-
 ----
 	Return json data remove task.
 
