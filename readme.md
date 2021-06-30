@@ -66,13 +66,13 @@
 * **URL**\
   /get_all
 
-* **METHOD:**
+* **METHOD:**\
   request type
   `GET` | `POST`
 
 * **URL PARAMS**
 ----
- NO Params
+* **NO Params**
 
 * **Success Response**
   * **Code:** 200 \
