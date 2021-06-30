@@ -58,3 +58,16 @@
               error : "eror description" 
             }`
 
+## **clear Method**
+----
+	Return json data about added task.
+
+- **URL**\
+	/clear
+
+## **GET_ALL**
+----
+	Return json data about added task.
+
+- **URL**\
+	""
