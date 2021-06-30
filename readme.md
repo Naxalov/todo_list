@@ -20,6 +20,8 @@
 - get_all
 - remove
 
+
+=======
 # API:
 
 **Add method**
@@ -53,3 +55,4 @@
     **Content:** `{ 
                     error : "eror description" 
                   }`
+
