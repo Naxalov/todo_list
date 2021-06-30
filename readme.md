@@ -21,31 +21,38 @@
 - remove
 
 
-**ADD**
+=======
+# API:
+
+**Add method**
 ----
-  <_this is an api that adds a new task._>
+	Return json data about added task.
 
-* **URL**
+- **URL**
+	/add
 
-  <_add/_>
+- **Method:**
+  `GET`
 
-* **Method:**
-  
-  <_GET_>
-  
-*  **URL Params**
+- **URL Params**
+  **Required:**
+  `status(bool)`
+  `taskname(str)`
+  `description(str)` 
 
-   **Required:**
+- **Success Response:**
 
-   `id(int): New task ID`
-   `taskname(str): The name of the task`
-
-   **Optional:**
+  - **Code:** 200
+    **Content:** `{ 
+                    status : False,
+                    taskname : "taskname", 
+                    description : "description"
+                  }`
  
-   `status(bool): True if done, otherwise False`
-   `description(str): The description of the task`
+- **Error Response:**
 
-* **Success Response:**
+  - **Code:** 404 NOT FOUND
+    **Content:** `{ 
+                    error : "eror description" 
+                  }`
 
-  * **Code:** 200 <br />
-    **Content:** `{ id : 0}`
