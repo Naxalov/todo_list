@@ -21,29 +21,6 @@
 - remove
 
 
-
-- URL Params
-    ### Required:
-        id(int): New task ID
-        taskname(str): The name of the task
-    ### Optional:
-        
-        
-
-- Success Response:
-    ### Code: 200
-    ### Content: { id : 12 }
-
-
-
-
-
-
-
-
-
-
-
 **ADD**
 ----
   <_this is an api that adds a new task._>
