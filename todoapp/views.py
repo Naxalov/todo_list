@@ -14,11 +14,7 @@ def add(request):
 			status(bool): True if done, otherwise False
 			taskname(str): The name of the task
 			description(str): The description of the task 
-	responses:
-		error:
-			{
-				"status": "description error."
-			}
+	responses:True
 		
 		succesfully:
 			{
