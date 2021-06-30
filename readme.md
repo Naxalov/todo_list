@@ -19,3 +19,10 @@
 - update_status
 - get_all
 - remove
+
+### urls
+- addTask/
+- updateTask/
+- allTask/
+- deleteTask/
+- updateStatus/
