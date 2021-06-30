@@ -21,3 +21,26 @@
 - remove
 
 # API:
+
+## - URL:
+ <add/>
+
+## -METHOD:
+<GET>|<POST>
+
+## - URL Params:
+- id
+- status
+- taskname
+- description
+
+## - Required:
+- id=[integer]
+- taskname=[string]
+
+## - Optional:
+- status=[bool]
+- description=[string]
+
+## - Succes response:
+** {'result': 'succesfully!'} **
