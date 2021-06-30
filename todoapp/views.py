@@ -147,4 +147,5 @@ def remove(request):
     """
     return 0
 
-
+def clean_all(request):
+	return 0
