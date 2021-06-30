@@ -23,7 +23,7 @@
 # API:
 
 ## - URL:
- *add/*
+ *<add/>*
 
 ## -METHOD:
 *GET|POST*
