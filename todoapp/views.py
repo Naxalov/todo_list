@@ -157,4 +157,8 @@ def remove(request):
     """
     return 0
 
-
+def clean_all(request):
+	"""
+	This method clears all added tasks
+	"""
+	return 0

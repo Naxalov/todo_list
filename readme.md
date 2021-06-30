@@ -20,4 +20,41 @@
 - get_all
 - remove
 
+
+=======
 # API:
+
+## **Add method**
+----
+	Return json data about added task.
+
+- **URL**\
+	/add
+
+- **Method:**\
+  `GET`
+
+- **URL Params**\
+  **Required:**\
+  `status(bool)`\
+  `taskname(str)`\
+  `description(str)` 
+
+- **Success Response:**\
+
+  - **Code:** 200\
+    **Content:**\
+           `{ 
+              status : False,
+              taskname : "taskname", 
+              description : "description"
+            }`
+ 
+- **Error Response:**\
+
+  - **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
+
