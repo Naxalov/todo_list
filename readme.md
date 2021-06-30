@@ -26,16 +26,16 @@
 ----
 	Return json data about added task.
 
-- **URL**_
+- **URL**\
 	/add
 
-- **Method:**_
+- **Method:**\
   `GET`
 
-- **URL Params**_
-  **Required:**_
-  `status(bool)`
-  `taskname(str)`
+- **URL Params**\
+  **Required:**\
+  `status(bool)`\
+  `taskname(str)`\
   `description(str)` 
 
 - **Success Response:**\
@@ -48,10 +48,10 @@
               description : "description"
             }`
  
-- **Error Response:**_
+- **Error Response:**\
 
   - **Code:** 404 NOT FOUND
-    **Content:**_
+    **Content:**\
            `{ 
               error : "eror description" 
             }`
