@@ -178,8 +178,6 @@ def remove(request):
 		ID = str(ID)
 		k = 0
 		for i,task in enumerate(todo['task']):
-			print(task,ID)
-			print(ID,type(ID))
 			task_id = task.get('id',False)
 			if ID == task_id:
 				k += 1
