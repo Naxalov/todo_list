@@ -24,35 +24,37 @@
 =======
 # API:
 
-**Add method**
+## **Add method**
 ----
 	Return json data about added task.
 
-- **URL**
+- **URL**\
 	/add
 
-- **Method:**
+- **Method:**\
   `GET`
 
-- **URL Params**
-  **Required:**
-  `status(bool)`
-  `taskname(str)`
+- **URL Params**\
+  **Required:**\
+  `status(bool)`\
+  `taskname(str)`\
   `description(str)` 
 
-- **Success Response:**
+- **Success Response:**\
 
-  - **Code:** 200
-    **Content:** `{ 
-                    status : False,
-                    taskname : "taskname", 
-                    description : "description"
-                  }`
+  - **Code:** 200\
+    **Content:**\
+           `{ 
+              status : False,
+              taskname : "taskname", 
+              description : "description"
+            }`
  
-- **Error Response:**
+- **Error Response:**\
 
-  - **Code:** 404 NOT FOUND
-    **Content:** `{ 
-                    error : "eror description" 
-                  }`
+  - **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
 
