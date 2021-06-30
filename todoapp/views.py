@@ -105,7 +105,7 @@ def update_status(request):
 
 
 def get_all(request):
-    """this is the api that gives all ADH
+	"""this is the api that gives all ADH
     ---
     parameters:
         None
@@ -129,7 +129,8 @@ def get_all(request):
 			}
 
     """
-    return 0
+	print(todo)
+	return JsonResponse(todo)
 
 
 def remove(request):
