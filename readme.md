@@ -72,9 +72,10 @@
 
 * **URL PARAMS**
 ----
-* **NO Params**
+* ***NO Params***
 
 * **Success Response**
+
   * **Code:** 200 \
     **Content:**\
      `{
@@ -90,6 +91,7 @@
 			}`
 
 * **Error Response**
+
   * **Code:** 404 NOT FOUND\
     **Content:**\
            `{ 
