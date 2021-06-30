@@ -58,3 +58,41 @@
               error : "eror description" 
             }`
 
+
+## **Get_all method**
+----
+  all data return
+
+* **URL**\
+  /get_all
+
+* **METHOD:**
+  request type
+  `GET` | `POST`
+
+* **URL PARAMS**
+----
+ NO Params
+
+* **Success Response**
+  * **Code:** 200 \
+    **Content:**\
+     `{
+				"status": "Ok",
+				"task":[
+					{
+						"id": ID,
+						"status": "status" ,
+						"taskname": "taskname",
+						"description": "description"
+					},
+					. . . . .]
+			}`
+
+* **Error Response**
+  * **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
+
