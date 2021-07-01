@@ -23,24 +23,25 @@
 
 =======
 # API:
-
+----
 ## **Add method**
 ----
 	Return json data about added task.
 
 - **URL**\
-	/add
+	`/add`
 
 - **Method:**\
   `GET`
 
 - **URL Params**\
   **Required:**\
+  `id(int)`\
   `status(bool)`\
   `taskname(str)`\
   `description(str)` 
 
-- **Success Response:**\
+- **Success Response:**
 
   - **Code:** 200\
     **Content:**\
@@ -57,4 +58,71 @@
            `{ 
               error : "eror description" 
             }`
+----
+## **Get all method**
+----
+	Return json data all task.
 
+- **URL**\
+	`/get_all`
+
+- **Method:**\
+  `GET`
+
+- **URL Params**\
+  **Required:**\
+  `None`
+
+- **Success Response:**
+
+  - **Code:** 200\
+    **Content:**\
+           `[{ 
+              id:id,
+              status : False,
+              taskname : "taskname", 
+              description : "description"
+            }
+            . . .]`
+ 
+- **Error Response:**\
+
+  - **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
+
+----
+## **Remove method**
+----
+	Return json data remove task.
+
+- **URL**\
+	`/remove`
+
+- **Method:**\
+  `GET`
+
+- **URL Params**\
+  **Required:**\
+  `id (int)`
+
+- **Success Response:**
+
+  - **Code:** 200\
+    **Content:**\
+           `{ 
+              id:remove task id,
+              status : False,
+              taskname : "taskname", 
+              description : "description"
+            }`
+ 
+- **Error Response:**\
+
+  - **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
