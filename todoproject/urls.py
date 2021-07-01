@@ -17,11 +17,12 @@ from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
 from django.http import JsonResponse
-from todoapp.views import add
+from todoapp.views import add,get_all
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('add/', add),
+    path('get_all/',get_all)
 
     
 ]
