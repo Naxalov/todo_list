@@ -93,4 +93,48 @@
               error : "eror description" 
             }`
 
+## **Update method**
+----
+  you can change task or task information 
+
+* **URL**\
+  /update
+
+* **METHOD:**\
+  request type
+  `GET` | `POST`
+
+* **URL PARAMS**
+
+  **Required:**\
+  `id(int)`\
+  `taskname(str)`\
+  `description(str)`\
+  **Optional:**\
+  `status(bool)`\
+
+* **Success Response**
+
+  * **Code:** 200 \
+    **Content:**\
+     `{
+				"status": "Ok",
+				"update_task":
+                        {
+                          "id": ID,
+                          "status": "status" ,
+                          "taskname": "taskname",
+                          "description": "description"
+                        }
+			}`
+
+* **Error Response**
+
+  * **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
+
+
 
