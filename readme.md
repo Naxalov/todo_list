@@ -138,3 +138,36 @@
 
 
 
+## **Remove method**
+----
+  you can remove task 
+
+* **URL**\
+  /remove
+
+* **METHOD:**\
+  request type
+  `GET` | `POST`
+
+* **URL PARAMS**
+
+  **Required:**\
+  `id(int)`\
+  `taskname(str)`\
+
+
+* **Success Response**
+
+  * **Code:** 200 \
+    **Content:**\
+     `{
+				"status": "Ok"
+			}`
+
+* **Error Response**
+
+  * **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "error description" 
+            }`
