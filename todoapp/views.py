@@ -31,40 +31,26 @@ def add(request):
 
 	"""
 	if request.method == 'GET':
-		ID = request.GET.get('id',False)
+		ID = request.GET.get('id','')
 		status = request.GET.get('status',False)
-		taskname = request.GET.get('taskname',False)
+		taskname = request.GET.get('taskname','')
 		description = request.GET.get('description','')
-		# print(taskname)
-		# print(request.GET.items())
-		task={}
-		task['taskname']=taskname
-		task['status']=status
-		task['description']=description
-
-
-		todo['task'].append(task)
+		if ID!='' and taskname!='':
+			task={}
+			task['id']=ID
+			task['taskname']=taskname
+			task['status']=status
+			task['description']=description
+			print(task)
+			result=True
+			todo['task'].append(task)
+		else:
+			result="id or taskname didn't input"
 	
-	return JsonResponse({'result':True})
+	return JsonResponse({'result':result})
 
 
-		print(taskname)
-		error = {}
-		if not ID:
-			error['error'] = "id not given"
-		elif not status:
-			error['error'] = "status not given"
-		elif not taskname:
-			error['error'] = "taskname not given"
-		elif not description:
-			error['error'] = "description not given"
-		else:
-			todo['task'].append({"id":ID,"status":status,"taskname":taskname,"description":description})
-
-		if len(error) != 0:
-			response = error
-		else:
-			response = todo['task'][-1]
+		
 
 
 
@@ -98,6 +84,10 @@ def update(request):
 			}
 
     """
+
+
+
+
     return 0
 
 
@@ -183,24 +173,9 @@ def remove(request):
 				}
 			}
 	"""
-	ID = request.GET.get('id',False)
+	
 
-	if not ID:
-		response = {"error":"id not entered"}
-	else:
-		ID = str(ID)
-		k = 0
-		for i,task in enumerate(todo['task']):
-			task_id = task.get('id',False)
-			if ID == task_id:
-				k += 1
-				idx = i
-		if k == 0:
-			response = {"error":"id not fount"}
-		else:
-			response = todo['task'].pop(idx)
-
-	return JsonResponse(response)
+	return JsonResponse({"ok":1})
 
 def clean_all(request):
 	"""
