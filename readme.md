@@ -23,24 +23,25 @@
 
 =======
 # API:
-
+----
 ## **Add method**
 ----
 	Return json data about added task.
 
 - **URL**\
-	/add
+	`/add`
 
 - **Method:**\
   `GET`
 
 - **URL Params**\
   **Required:**\
+  `id(int)`\
   `status(bool)`\
   `taskname(str)`\
   `description(str)` 
 
-- **Success Response:**\
+- **Success Response:**
 
   - **Code:** 200\
     **Content:**\
@@ -57,85 +58,39 @@
            `{ 
               error : "eror description" 
             }`
-
-
-## **Get_all method**
 ----
-  all data return
-
-* **URL**\
-  /get_all
-
-* **METHOD:**\
-  request type
-  `GET` | `POST`
-
-* **URL PARAMS**
-
-  * ***NO Params***
-
-* **Success Response**
-
-  * **Code:** 200 \
-    **Content:**\
-     `{
-				"status": "Ok",
-				"task":[
-					{
-						"id": ID,
-						"status": "status" ,
-						"taskname": "taskname",
-						"description": "description"
-					},
-					. . . . .]
-			}`
-
-* **Error Response**
-
-  * **Code:** 404 NOT FOUND\
-    **Content:**\
-           `{ 
-              error : "eror description" 
-            }`
-
-## **Update method**
+## **Get all method**
 ----
-  you can change task or task information 
+	Return json data all task.
 
-* **URL**\
-  /update
+- **URL**\
+	`/get_all`
 
-* **METHOD:**\
-  request type
-  `GET` | `POST`
+- **Method:**\
+  `GET`
 
-* **URL PARAMS**
-
+- **URL Params**\
   **Required:**\
-  `taskname(str)`\
-  `description(str)`\
-  **Optional:**\
-  `status(bool)`\
+  `None`
 
-* **Success Response**
+- **Success Response:**
 
-  * **Code:** 200 \
+  - **Code:** 200\
     **Content:**\
-     `{
-				"status": "Ok",
-				"update_task":
-                        {
-                          "status": "status" ,
-                          "taskname": "taskname",
-                          "description": "description"
-                        }
-			}`
+           `[{ 
+              id:id,
+              status : False,
+              taskname : "taskname", 
+              description : "description"
+            }
+            . . .]`
+ 
+- **Error Response:**\
 
-* **Error Response**
-
-  * **Code:** 404 NOT FOUND\
+  - **Code:** 404 NOT FOUND\
     **Content:**\
            `{ 
               error : "eror description" 
             }`
+
 
