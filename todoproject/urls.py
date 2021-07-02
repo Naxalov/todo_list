@@ -18,7 +18,7 @@ from django.urls import path
 from django.http import HttpResponse
 from django.http import JsonResponse
 
-from todoapp.views import add,get_all,update
+from todoapp.views import add,get_all,update,remove
 
 
 
@@ -28,5 +28,6 @@ urlpatterns = [
     path('add/', add),
     path('get_all/',get_all),
     path('update/',update),
+    path('remove/',remove)
    
 ]

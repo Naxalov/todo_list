@@ -179,13 +179,25 @@ def remove(request):
                             "remove_task":{
                                     "id": ID,
                                     "status": "status" ,
-                                    "taskname": "taskname",
+                                        "taskname": "taskname",
                                     "description": "description"
                             }
                     }
     """
 
-    return JsonResponse({"ok": 1})
+    if request.method=="GET":
+        id = request.GET.get("id",'')
+        taskname=request.GET.get("taskname",'')
+        for idx,task in enumerate(todo['task']):
+            result="not found"
+            if id == task['id'] and taskname==task['taskname']:
+                result="successful"
+                break
+                
+        del todo['task'][idx]
+
+
+    return JsonResponse({"result": result})
 
 
 def clean_all(request):
