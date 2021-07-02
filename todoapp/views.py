@@ -4,63 +4,55 @@ from django.http import JsonResponse
 
 # example of database
 
-todo = {"task":[]}
+todo = {"task": []}
+
 
 def add(request):
+    """this is an api that adds a new task
+    ---
+    parameters:
+            Args:
 
-	"""this is an api that adds a new task
-	---
-	parameters:
-		Args:
-		
-			status(bool): True if done, otherwise False
-			taskname(str): The name of the task
-			description(str): The description of the task 
-	responses:True
-		
-		succesfully:
-			{
-				"status": "Ok",
-				"added_task":{
-				
-					"status": "status" ,
-					"taskname": "taskname",
-					"description": "description"
-				}
-			}
+                    status(bool): True if done, otherwise False
+                    taskname(str): The name of the task
+                    description(str): The description of the task
+    responses:True
 
-	"""
-	if request.method == 'GET':
-		ID = request.GET.get('id',False)
-		status = request.GET.get('status',False)
-		taskname = request.GET.get('taskname',False)
-		description = request.GET.get('description','')
+            succesfully:
+                    {
+                            "status": "Ok",
+                            "added_task":{
 
-		print(taskname)
-		error = {}
-		if not ID:
-			error['error'] = "id not given"
-		elif not status:
-			error['error'] = "status not given"
-		elif not taskname:
-			error['error'] = "taskname not given"
-		elif not description:
-			error['error'] = "description not given"
-		else:
-			todo['task'].append({"id":ID,"status":status,"taskname":taskname,"description":description})
+                                    "status": "status" ,
+                                    "taskname": "taskname",
+                                    "description": "description"
+                            }
+                    }
 
-		if len(error) != 0:
-			response = error
-		else:
-			response = todo['task'][-1]
+    """
+    if request.method == 'GET':
+        ID = request.GET.get('id', '')
+        status = request.GET.get('status', False)
+        taskname = request.GET.get('taskname', '')
+        description = request.GET.get('description', '')
+        if ID != '' and taskname != '':
+            task = {}
+            task['id'] = ID
+            task['taskname'] = taskname
+            task['status'] = status
+            task['description'] = description
+            print(task)
+            result = True
+            todo['task'].append(task)
+        else:
+            result = "id or taskname didn't input"
 
-	return JsonResponse(response)
-
+    return JsonResponse({'result': result})
 
 
 def update(request):
     """this is an api that updates the old function
-    ---
+
     parameters:
         Args:
             id(int): New task ID
@@ -69,24 +61,45 @@ def update(request):
         Kwargs:
             status(bool): True if done, otherwise False
     responses:
-		error:
-			{
-				"status": "description error."
-			}
-        
-      	succesfully:
-		  	{
-				"status": "Ok",
-				"update_task":{
-					"id": ID,
-					"status": "status" ,
-					"taskname": "taskname",
-					"description": "description"
-				}
-			}
+                error:
+                        {
+                                "status": "description error."
+                        }
 
-    """
-    return 0
+        succesfully:
+                        {
+                                "status": "Ok",
+                                "update_task":{
+                                        "id": ID,
+                                        "status": "status" ,
+                                        "taskname": "taskname",
+                                        "description": "description"
+                                }
+                        }
+
+        """
+
+    if request.method == "GET":
+        id = request.GET.get("id", '')
+        taskname = request.GET.get("taskname", '')
+        description = request.GET.get("description", '')
+        status = request.GET.get("status", False)
+        for idx,task in enumerate(todo['task']):
+            if id == task['id']:
+                
+                break
+                
+        del todo['task'][idx]
+        print(todo['task'])     
+
+        new_task={}
+        new_task["id"]=id
+        new_task['taskname']=taskname
+        new_task['description']=description
+        new_task['status']=status
+        todo['task'].insert(idx,new_task)
+
+    return JsonResponse({"result": "ok",'update_task':new_task})
 
 
 def update_status(request):
@@ -100,97 +113,95 @@ def update_status(request):
             taskname(str): The name of the task
             description: The description of the task 
     responses:
-      	Error:
-			{
-				"status": "description error."
-			}
-        
-      	Succesfully:
-		  	{
-				"status": "Ok",
-				"update_task":{
-					"id": ID,
-					"status": "status" ,
-					"taskname": "taskname",
-					"description": "description"
-				}
-			}
+        Error:
+                        {
+                                "status": "description error."
+                        }
+
+        Succesfully:
+                        {
+                                "status": "Ok",
+                                "update_task":{
+                                        "id": ID,
+                                        "status": "status" ,
+                                        "taskname": "taskname",
+                                        "description": "description"
+                                }
+                        }
 
     """
     return 0
 
 
 def get_all(request):
-	"""this is the api that gives all ADH
-    ---
-    parameters:
-        None
-    responses:
-		error:
-			{
-				"status": "description error."
-			}
-        
-      	succesfully:
-		  	{
-				"status": "Ok",
-				"task":[
-					{
-						"id": ID,
-						"status": "status" ,
-						"taskname": "taskname",
-						"description": "description"
-					},
-					. . . . .]
-			}
+    """this is the api that gives all ADH
+---
+parameters:
+    None
+responses:
+            error:
+                    {
+                            "status": "description error."
+                    }
 
-    """
-	return JsonResponse(todo)
+    succesfully:
+                    {
+                            "status": "Ok",
+                            "task":[
+                                    {
+                                            "id": ID,
+                                            "status": "status" ,
+                                            "taskname": "taskname",
+                                            "description": "description"
+                                    },
+                                    . . . . .]
+                    }
+
+"""
+
+    return JsonResponse(todo)
 
 
 def remove(request):
-	"""this is an api that disables the executed AMA
-	---
-	parameters:
-		id(int): Task ID
-	responses:
-		error:
-			{
-				"status": "description error."
-			}
-		
-		succesfully:
-			{
-				"status": "Ok",
-				"remove_task":{
-					"id": ID,
-					"status": "status" ,
-					"taskname": "taskname",
-					"description": "description"
-				}
-			}
-	"""
-	ID = request.GET.get('id',False)
+    """this is an api that disables the executed AMA
+    ---
+    parameters:
+            id(int): Task ID
+    responses:
+            error:
+                    {
+                            "status": "description error."
+                    }
 
-	if not ID:
-		response = {"error":"id not entered"}
-	else:
-		ID = str(ID)
-		k = 0
-		for i,task in enumerate(todo['task']):
-			task_id = task.get('id',False)
-			if ID == task_id:
-				k += 1
-				idx = i
-		if k == 0:
-			response = {"error":"id not fount"}
-		else:
-			response = todo['task'].pop(idx)
+            succesfully:
+                    {
+                            "status": "Ok",
+                            "remove_task":{
+                                    "id": ID,
+                                    "status": "status" ,
+                                        "taskname": "taskname",
+                                    "description": "description"
+                            }
+                    }
+    """
 
-	return JsonResponse(response)
+    if request.method=="GET":
+        id = request.GET.get("id",'')
+        taskname=request.GET.get("taskname",'')
+        for idx,task in enumerate(todo['task']):
+            result="not found"
+            if id == task['id'] and taskname==task['taskname']:
+                result="successful"
+                break
+                
+        del todo['task'][idx]
+
+
+    return JsonResponse({"result": result})
+
 
 def clean_all(request):
-	"""
-	This method clears all added tasks
-	"""
-	return 0
+    """
+    This method clears all added tasks
+    """
+    return 0

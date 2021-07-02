@@ -93,36 +93,81 @@
               error : "eror description" 
             }`
 
+## **Update method**
 ----
-## **Remove method**
-----
-	Return json data remove task.
+  you can change task or task information 
 
-- **URL**\
-	`/remove`
+* **URL**\
+  /update
 
-- **Method:**\
-  `GET`
+* **METHOD:**\
+  request type
+  `GET` | `POST`
 
-- **URL Params**\
+* **URL PARAMS**
+
   **Required:**\
-  `id (int)`
+  `id(int)`\
+  `taskname(str)`\
+  `description(str)`\
+  **Optional:**\
+  `status(bool)`\
 
-- **Success Response:**
+* **Success Response**
 
-  - **Code:** 200\
+  * **Code:** 200 \
     **Content:**\
-           `{ 
-              id:remove task id,
-              status : False,
-              taskname : "taskname", 
-              description : "description"
-            }`
- 
-- **Error Response:**\
+     `{
+				"status": "Ok",
+				"update_task":
+                        {
+                          "id": ID,
+                          "status": "status" ,
+                          "taskname": "taskname",
+                          "description": "description"
+                        }
+			}`
 
-  - **Code:** 404 NOT FOUND\
+* **Error Response**
+
+  * **Code:** 404 NOT FOUND\
     **Content:**\
            `{ 
               error : "eror description" 
+            }`
+
+
+
+## **Remove method**
+----
+  you can remove task 
+
+* **URL**\
+  /remove
+
+* **METHOD:**\
+  request type
+  `GET` | `POST`
+
+* **URL PARAMS**
+
+  **Required:**\
+  `id(int)`\
+  `taskname(str)`\
+
+
+* **Success Response**
+
+  * **Code:** 200 \
+    **Content:**\
+     `{
+				"status": "Ok"
+			}`
+
+* **Error Response**
+
+  * **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "error description" 
             }`
