@@ -23,7 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('add/', add),
     path('',get_all),
-    path('clear/',clean_all)
+    path('clear/',clean_all),
+    path('update/',update),
+    path('remove/',remove)
+
 
     
 ]
