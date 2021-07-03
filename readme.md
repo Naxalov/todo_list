@@ -126,3 +126,74 @@
            `{ 
               error : "eror description" 
             }`
+
+----
+## **Update method**
+----
+	Return json data update task.
+
+- **URL**\
+	`/update`
+
+- **Method:**\
+  `GET`
+
+- **URL Params**\
+  **Required:**\
+  `id (int)`\
+  `status(bool)`\
+  `taskname(str)`
+
+- **Success Response:**
+
+  - **Code:** 200\
+    **Content:**\
+           `{ 
+              id:update task id,
+              status : False,
+              taskname : "update taskname", 
+              description : "update description"
+            }`
+ 
+- **Error Response:**\
+
+  - **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
+
+----
+## **Update status method**
+----
+	Return json data update status task.
+
+- **URL**\
+	`/update_status`
+
+- **Method:**\
+  `GET`
+
+- **URL Params**\
+  **Required:**\
+  `id (int)`\
+  `status(bool)`
+
+- **Success Response:**
+
+  - **Code:** 200\
+    **Content:**\
+           `{ 
+              id:update task id,
+              status : update status,
+              taskname : "taskname", 
+              description : "description"
+            }`
+ 
+- **Error Response:**\
+
+  - **Code:** 404 NOT FOUND\
+    **Content:**\
+           `{ 
+              error : "eror description" 
+            }`
