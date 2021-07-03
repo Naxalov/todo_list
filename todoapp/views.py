@@ -116,23 +116,23 @@ def update(request):
 
 
 def update_status(request):
-    """this condition is a variable api
-    ---
-    parameters:
-        Args:
-            id(int): New task ID
-            status(bool): True if done, otherwise false
-        Kwargs:
-            taskname(str): The name of the task
-            description: The description of the task 
-    responses:
-      	Error:
+	"""this condition is a variable api
+	---
+	parameters:
+		Args:
+			id(int): New task ID
+			status(bool): True if done, otherwise false
+		Kwargs:
+			taskname(str): The name of the task
+			description: The description of the task 
+	responses:
+		Error:
 			{
 				"status": "description error."
 			}
-        
-      	Succesfully:
-		  	{
+		
+		Succesfully:
+			{
 				"status": "Ok",
 				"update_task":{
 					"id": ID,
@@ -142,8 +142,29 @@ def update_status(request):
 				}
 			}
 
-    """
-    return 0
+	"""
+	ID = request.GET.get('id',False)
+	status = request.GET.get('status',False)
+
+	if not ID:
+		response = {"error":"id not entered"}
+	elif not status:
+		response = {"error":"status not entered"}
+	else:
+		ID = str(ID)
+		k = 0
+		for i,task in enumerate(todo['task']):
+			task_id = task.get('id',False)
+			if ID == task_id:
+				k += 1
+				idx = i
+		if k == 0:
+			response = {"error":"id not fount"}
+		else:
+			todo['task'][idx]['status'] = status
+			response = todo['task'][idx]
+
+	return JsonResponse(response)
 
 
 def get_all(request):

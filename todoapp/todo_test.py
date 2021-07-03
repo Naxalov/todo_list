@@ -1,10 +1,10 @@
 import requests
 from pprint import pprint
 
-def add_test():
+def add_test(x):
 
 	params = {
-		'id':5,
+		'id':x,
 		'status':'False',
 		'taskname':'bajariladigan ish',
 		'description':'nimalar qilish kerak'
@@ -42,7 +42,19 @@ def update(idx):
 
 	pprint(data.json())
 
+def update_status(idx):
+
+	params = {
+		'id':idx,
+		'status':'True',
+	}
+
+	data = requests.get('http://127.0.0.1:8000/update_status',params=params)
+
+	pprint(data.json())
+
+# update_status(12)
 # update(5)
 get_all_test()
-# add_test()
+# add_test(1)
 # remove(12)
