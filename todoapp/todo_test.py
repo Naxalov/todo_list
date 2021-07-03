@@ -28,7 +28,21 @@ def remove(ID):
 	}
 	data = requests.get(f'http://127.0.0.1:8000/remove',params=params)
 	print(data.json())
-	
+
+def update(idx):
+
+	params = {
+		'id':idx,
+		'status':'False',
+		'taskname':'update taskname',
+		'description':'update description'
+	}
+
+	data = requests.get('http://127.0.0.1:8000/update',params=params)
+
+	pprint(data.json())
+
+# update(5)
 get_all_test()
 # add_test()
 # remove(12)

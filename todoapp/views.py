@@ -59,23 +59,23 @@ def add(request):
 
 
 def update(request):
-    """this is an api that updates the old function
-    ---
-    parameters:
-        Args:
-            id(int): New task ID
-            taskname(str): The name of the task
-            description: The description of the task
-        Kwargs:
-            status(bool): True if done, otherwise False
-    responses:
+	"""this is an api that updates the old function
+	---
+	parameters:
+		Args:
+			id(int): old task ID
+			taskname(str): The name of the task
+			description: The description of the task
+		Kwargs:
+			status(bool): True if done, otherwise False
+	responses:
 		error:
 			{
 				"status": "description error."
 			}
-        
-      	succesfully:
-		  	{
+		
+		succesfully:
+			{
 				"status": "Ok",
 				"update_task":{
 					"id": ID,
@@ -84,9 +84,35 @@ def update(request):
 					"description": "description"
 				}
 			}
+	"""
 
-    """
-    return 0
+	ID = request.GET.get('id',False)
+	status = request.GET.get('status',False)
+	taskname = request.GET.get('taskname',False)
+	description = request.GET.get('description','')
+
+	if not ID:
+		response = {"error":"id not entered"}
+	elif not taskname:
+		response = {"error":"taskname not entered"}
+	elif not description:
+		response = {"error":"description not entered"}
+	elif not status:
+		response = {"error":"status not entered"}
+	else:
+		ID = str(ID)
+		k = 0
+		for i,task in enumerate(todo['task']):
+			task_id = task.get('id',False)
+			if ID == task_id:
+				k += 1
+				idx = i
+		if k == 0:
+			response = {"error":"id not fount"}
+		else:
+			response = todo['task'][idx] = {"id":ID,"status":status,"taskname":taskname,"description":description}
+
+	return JsonResponse(response)
 
 
 def update_status(request):
