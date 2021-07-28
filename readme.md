@@ -171,3 +171,13 @@
            `{ 
               error : "error description" 
             }`
+
+
+========
+# Models
+----
+### - task adds with shell
+- ![addtask](photos/addtask1.jpg) 
+- ![addtask](photos/addtask2.jpg)
+### - database
+- ![database](photos/database.jpg)
